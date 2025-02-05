@@ -1,0 +1,1153 @@
+fileFormatVersion: 2
+guid: 48cce200d3ed16a448052f849a76ae0d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3709807376552709826
+    second: confety back_0
+  - first:
+      213: 4659652486797993564
+    second: confety back_1
+  - first:
+      213: 7081525928763356416
+    second: confety back_2
+  - first:
+      213: 8025585435123042390
+    second: confety back_3
+  - first:
+      213: -3915291118327975900
+    second: confety back_4
+  - first:
+      213: -7806156292666798850
+    second: confety back_5
+  - first:
+      213: -6699976426611295026
+    second: confety back_6
+  - first:
+      213: 9108670550065304796
+    second: confety back_7
+  - first:
+      213: 3296824170275811181
+    second: confety back_8
+  - first:
+      213: 4387511755845893173
+    second: confety back_9
+  - first:
+      213: 4759565592733278328
+    second: confety back_10
+  - first:
+      213: -2437595827242419560
+    second: confety back_11
+  - first:
+      213: 2406224640740048982
+    second: confety back_12
+  - first:
+      213: -3299228861056691992
+    second: confety back_13
+  - first:
+      213: 368845699359259360
+    second: confety back_14
+  - first:
+      213: 2642274183027447626
+    second: confety back_15
+  - first:
+      213: 8449938588104702117
+    second: confety back_16
+  - first:
+      213: 6645586734152920676
+    second: confety back_17
+  - first:
+      213: -3720577558055366256
+    second: confety back_18
+  - first:
+      213: 6999428613071491356
+    second: confety back_19
+  - first:
+      213: -6806494464815508734
+    second: confety back_20
+  - first:
+      213: -3964675079512490755
+    second: confety back_21
+  - first:
+      213: -105487589587711503
+    second: confety back_22
+  - first:
+      213: -3114453518038420078
+    second: confety back_23
+  - first:
+      213: -4606347946580331096
+    second: confety back_24
+  - first:
+      213: 5955876030490177095
+    second: confety back_25
+  - first:
+      213: 5584900372699753941
+    second: confety back_26
+  - first:
+      213: -1173490833445252419
+    second: confety back_27
+  - first:
+      213: 3728302116600392051
+    second: confety back_28
+  - first:
+      213: -1458503458501198708
+    second: confety back_29
+  - first:
+      213: 3280730109984631562
+    second: confety back_30
+  - first:
+      213: 2437112063834983236
+    second: confety back_31
+  - first:
+      213: -92549274984673502
+    second: confety back_32
+  - first:
+      213: 7562978840524080149
+    second: confety back_33
+  - first:
+      213: -1787650383199475467
+    second: confety back_34
+  - first:
+      213: -6126071310929748354
+    second: confety back_35
+  - first:
+      213: -10418228904261514
+    second: confety back_36
+  - first:
+      213: -7068691739677186462
+    second: confety back_37
+  - first:
+      213: 883141299432172168
+    second: confety back_38
+  - first:
+      213: 6360153305864173863
+    second: confety back_39
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: confety back_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 950
+        width: 33
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e31b37fa8dd148cc0800000000000000
+      internalID: -3709807376552709826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_1
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 968
+        width: 235
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c562c54bf396aa040800000000000000
+      internalID: 4659652486797993564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_2
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 883
+        width: 86
+        height: 197
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00578ab0052a64260800000000000000
+      internalID: 7081525928763356416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_3
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 1022
+        width: 37
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 658ce0f8e6b906f60800000000000000
+      internalID: 8025585435123042390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_4
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 1069
+        width: 17
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 420b1d3d8771aa9c0800000000000000
+      internalID: -3915291118327975900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_5
+      rect:
+        serializedVersion: 2
+        x: 1161
+        y: 1061
+        width: 96
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efc4a6ae536faa390800000000000000
+      internalID: -7806156292666798850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_6
+      rect:
+        serializedVersion: 2
+        x: 1450
+        y: 1069
+        width: 33
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eccb75020f6e403a0800000000000000
+      internalID: -6699976426611295026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_7
+      rect:
+        serializedVersion: 2
+        x: 1499
+        y: 1074
+        width: 19
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd454b00b9f786e70800000000000000
+      internalID: 9108670550065304796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_8
+      rect:
+        serializedVersion: 2
+        x: 1720
+        y: 965
+        width: 33
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6f26349d1ca0cd20800000000000000
+      internalID: 3296824170275811181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_9
+      rect:
+        serializedVersion: 2
+        x: 1808
+        y: 785
+        width: 137
+        height: 295
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53c7b0722b293ec30800000000000000
+      internalID: 4387511755845893173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_10
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 938
+        width: 37
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 870e90870bf5d0240800000000000000
+      internalID: 4759565592733278328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_11
+      rect:
+        serializedVersion: 2
+        x: 921
+        y: 952
+        width: 84
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89abd33928beb2ed0800000000000000
+      internalID: -2437595827242419560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_12
+      rect:
+        serializedVersion: 2
+        x: 1919
+        y: 943
+        width: 96
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6504a11ef80a46120800000000000000
+      internalID: 2406224640740048982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 630
+        height: 924
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e0dff7b4d8c632d0800000000000000
+      internalID: -3299228861056691992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_14
+      rect:
+        serializedVersion: 2
+        x: 793
+        y: 836
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ea3d3795376e1500800000000000000
+      internalID: 368845699359259360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_15
+      rect:
+        serializedVersion: 2
+        x: 1158
+        y: 872
+        width: 63
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a47598ebe5e3ba420800000000000000
+      internalID: 2642274183027447626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_16
+      rect:
+        serializedVersion: 2
+        x: 1403
+        y: 871
+        width: 56
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a8b8dd4066344570800000000000000
+      internalID: 8449938588104702117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_17
+      rect:
+        serializedVersion: 2
+        x: 1649
+        y: 856
+        width: 12
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46eab35ccedd93c50800000000000000
+      internalID: 6645586734152920676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_18
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 648
+        width: 49
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 091d1d46c6add5cc0800000000000000
+      internalID: -3720577558055366256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_19
+      rect:
+        serializedVersion: 2
+        x: 1321
+        y: 698
+        width: 25
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c11d4d03d37f22160800000000000000
+      internalID: 6999428613071491356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_20
+      rect:
+        serializedVersion: 2
+        x: 1580
+        y: 628
+        width: 46
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 203520bb8597a81a0800000000000000
+      internalID: -6806494464815508734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_21
+      rect:
+        serializedVersion: 2
+        x: 2065
+        y: 688
+        width: 32
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfc70db5505aaf8c0800000000000000
+      internalID: -3964675079512490755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_22
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 611
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f9896e989b398ef0800000000000000
+      internalID: -105487589587711503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_23
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 544
+        width: 25
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 295bad3c60d37c4d0800000000000000
+      internalID: -3114453518038420078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_24
+      rect:
+        serializedVersion: 2
+        x: 1990
+        y: 572
+        width: 72
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a5ba34b2f6f210c0800000000000000
+      internalID: -4606347946580331096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_25
+      rect:
+        serializedVersion: 2
+        x: 2155
+        y: 633
+        width: 5
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74e61a3b1b587a250800000000000000
+      internalID: 5955876030490177095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_26
+      rect:
+        serializedVersion: 2
+        x: 1291
+        y: 535
+        width: 44
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dd27b48c4d818d40800000000000000
+      internalID: 5584900372699753941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_27
+      rect:
+        serializedVersion: 2
+        x: 1849
+        y: 163
+        width: 311
+        height: 429
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db2915ded4ce6bfe0800000000000000
+      internalID: -1173490833445252419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_28
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 464
+        width: 90
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 379ad4b85079db330800000000000000
+      internalID: 3728302116600392051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_29
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 425
+        width: 50
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8c7b5cf4da52cbe0800000000000000
+      internalID: -1458503458501198708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_30
+      rect:
+        serializedVersion: 2
+        x: 1420
+        y: 0
+        width: 300
+        height: 498
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0bef8927ae778d20800000000000000
+      internalID: 3280730109984631562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_31
+      rect:
+        serializedVersion: 2
+        x: 1740
+        y: 418
+        width: 70
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44b04ba728c52d120800000000000000
+      internalID: 2437112063834983236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_32
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 243
+        width: 61
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22f815cbce237bef0800000000000000
+      internalID: -92549274984673502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_33
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 0
+        width: 389
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 514cb316f2915f860800000000000000
+      internalID: 7562978840524080149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_34
+      rect:
+        serializedVersion: 2
+        x: 1222
+        y: 206
+        width: 82
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f8edc6a27df037e0800000000000000
+      internalID: -1787650383199475467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_35
+      rect:
+        serializedVersion: 2
+        x: 1386
+        y: 0
+        width: 103
+        height: 207
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7e125b9992dbfaa0800000000000000
+      internalID: -6126071310929748354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_36
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 30
+        width: 42
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67809fe0dacfadff0800000000000000
+      internalID: -10418228904261514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_37
+      rect:
+        serializedVersion: 2
+        x: 1785
+        y: 121
+        width: 30
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 266adc57056f6ed90800000000000000
+      internalID: -7068691739677186462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_38
+      rect:
+        serializedVersion: 2
+        x: 1912
+        y: 0
+        width: 137
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88aa12f255c814c00800000000000000
+      internalID: 883141299432172168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: confety back_39
+      rect:
+        serializedVersion: 2
+        x: 2099
+        y: 0
+        width: 61
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7297f01fbbdc34850800000000000000
+      internalID: 6360153305864173863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      confety back_0: -3709807376552709826
+      confety back_1: 4659652486797993564
+      confety back_10: 4759565592733278328
+      confety back_11: -2437595827242419560
+      confety back_12: 2406224640740048982
+      confety back_13: -3299228861056691992
+      confety back_14: 368845699359259360
+      confety back_15: 2642274183027447626
+      confety back_16: 8449938588104702117
+      confety back_17: 6645586734152920676
+      confety back_18: -3720577558055366256
+      confety back_19: 6999428613071491356
+      confety back_2: 7081525928763356416
+      confety back_20: -6806494464815508734
+      confety back_21: -3964675079512490755
+      confety back_22: -105487589587711503
+      confety back_23: -3114453518038420078
+      confety back_24: -4606347946580331096
+      confety back_25: 5955876030490177095
+      confety back_26: 5584900372699753941
+      confety back_27: -1173490833445252419
+      confety back_28: 3728302116600392051
+      confety back_29: -1458503458501198708
+      confety back_3: 8025585435123042390
+      confety back_30: 3280730109984631562
+      confety back_31: 2437112063834983236
+      confety back_32: -92549274984673502
+      confety back_33: 7562978840524080149
+      confety back_34: -1787650383199475467
+      confety back_35: -6126071310929748354
+      confety back_36: -10418228904261514
+      confety back_37: -7068691739677186462
+      confety back_38: 883141299432172168
+      confety back_39: 6360153305864173863
+      confety back_4: -3915291118327975900
+      confety back_5: -7806156292666798850
+      confety back_6: -6699976426611295026
+      confety back_7: 9108670550065304796
+      confety back_8: 3296824170275811181
+      confety back_9: 4387511755845893173
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

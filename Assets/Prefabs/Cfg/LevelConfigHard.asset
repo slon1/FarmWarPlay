@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9f879c5ba7ca54695a2bd9cba68c59, type: 3}
+  m_Name: LevelConfigHard
+  m_EditorClassIdentifier: 
+  id: 1
+  bg: {fileID: 21300000, guid: 6b2ee1969f23ed744b4e856cc7811e7e, type: 3}
+  playerHp: 1
+  waveCount: 33
+  enemyCount: 50
+  spawnPoint: {x: 0, y: 0}
+  minSpawnRadius: 16
+  maxSpawnRadius: 29
+  enemies:
+  - {fileID: 11400000, guid: a679a2a2c3c5da749a3f007e51d83ab8, type: 2}
+  - {fileID: 11400000, guid: af28a1849b620ea44a3a982a509dae20, type: 2}
+  - {fileID: 11400000, guid: 3da784093c0bc5543800b8c45b75575d, type: 2}
