@@ -126,9 +126,7 @@ public class GameManager : MonoBehaviour {
 		if (config == null) {
 			return;
 		}
-		player.Initialize(config.playerHp);
-		player.Show(true);
-		player.StartChecking(OnPlayerHit);
+		
 
 		input.Initialize();
 		level.ClearTileGrid();
@@ -150,6 +148,9 @@ public class GameManager : MonoBehaviour {
 
 		vfxController.Initialize();
 
+		player.Initialize(config.playerHp);
+		player.Show(true);
+		player.StartChecking(OnPlayerHit);
 
 		gui.ShowGameGui(true);
 		score.SetLife(config.playerHp);

@@ -49,7 +49,7 @@ public class Iap : MonoBehaviour, IDetailedStoreListener
 
 	public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs purchaseEvent)
 	{
-		print("purchased " + purchaseEvent.purchasedProduct.definition.id);
+		
 		OnPurchase?.Invoke(purchaseEvent.purchasedProduct.definition.id);
 		
 		FakeSaveProducts();
@@ -107,7 +107,7 @@ public class Iap : MonoBehaviour, IDetailedStoreListener
 		}
 		PlayerPrefs.SetString("fakeStore", string.Join(",", receipts));
 		PlayerPrefs.Save();
-		print("save "+ string.Join(",", receipts));
+		
 	}
 	
 }

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Wolf cfg
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 188f51ad0af363748bb25fd429a25b66, type: 3}
-  moveSpeed: 1.5
+  moveSpeed: 2
   rotationSpeed: 200
   hp: 1

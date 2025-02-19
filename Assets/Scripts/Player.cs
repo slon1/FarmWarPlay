@@ -3,6 +3,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using Unity.Burst;
+using Unity.Collections;
+using Unity.Jobs;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using static UnityEngine.EventSystems.EventTrigger;
@@ -20,13 +23,14 @@ public class Player : MonoBehaviour {
 
 	private CancellationTokenSource cts;
 	internal bool isAlive => hp > 0;
+	private EnemyController enemyController;
 
 	private void Awake() {
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		if (spriteRenderer != null) {
 			spriteSize = spriteRenderer.bounds.size * 0.33f;
 		}
-
+		enemyController = Installer.GetService<EnemyController>();
 	}
 	public void Initialize(int hp) {
 		this.hp = hp;
@@ -84,8 +88,21 @@ public class Player : MonoBehaviour {
 	}
 
 	private EnemyView CheckCollision() {
-		Collider2D hit = Physics2D.OverlapBox(transform.position, spriteSize, 0f);
-		return hit?.GetComponent<EnemyView>();
+		
+		using (var collisionIndex = new NativeReference<int>(-1, Allocator.TempJob)) 
+		{
+			var job = new CheckCollisionJob {
+				Enemies = enemyController.ToNativeArray(),
+				PlayerPosition = transform.position,
+				PlayerRadiusSqr = spriteSize.sqrMagnitude,				
+				CollisionIndex = collisionIndex
+			};
+
+			JobHandle jobHandle = job.Schedule(enemyController.enemyCount, 64);
+			jobHandle.Complete();
+
+			return collisionIndex.Value>=0 ? enemyController.GetEnemy(collisionIndex.Value) : null;
+		}
 	}
 	public void Stop() {
 		cts?.Cancel();
@@ -96,4 +113,21 @@ public class Player : MonoBehaviour {
 	}
 
 
+}
+[BurstCompile]
+public struct CheckCollisionJob : IJobParallelFor {
+	[ReadOnly] public NativeArray<MotionEntity> Enemies;
+	[ReadOnly] public Vector2 PlayerPosition;
+	[ReadOnly] public float PlayerRadiusSqr;
+
+	[NativeDisableParallelForRestriction] public NativeReference<int> CollisionIndex;
+
+	public void Execute(int index) {
+		if (CollisionIndex.Value != -1) return; 
+
+		float distance = (PlayerPosition - Enemies[index].Position).sqrMagnitude;
+		if (distance < PlayerRadiusSqr) {
+			CollisionIndex.Value = index;
+		}
+	}
 }

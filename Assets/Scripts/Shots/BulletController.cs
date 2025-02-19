@@ -1,8 +1,10 @@
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Threading;
+using Unity.Collections;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class BulletController : MonoBehaviour {
 	[SerializeField]
@@ -13,12 +15,20 @@ public class BulletController : MonoBehaviour {
 	[SerializeField]
 	private int damage;
 	private CancellationTokenSource cts;
-	
+
+	public int Count=>pool.ActiveObjects.Count;
+	public IReadOnlyList<BulletView> bullets=>pool.ActiveObjects;
+
+	private EnemyController enemyController;
+	private CollisionDetectionSystem collisionDetectionSystem;
+
 	public void Initialize() {
 		pool = new(prefab);
+		enemyController=Installer.GetService<EnemyController>();
+		collisionDetectionSystem = Installer.GetService<CollisionDetectionSystem>();
 
 	}
-
+	
 	public void Spawn(Vector2 position, Quaternion rotation) {
 		var obj = pool.Get();
 		obj.Initialize(position, rotation, speed, damage);
@@ -27,23 +37,43 @@ public class BulletController : MonoBehaviour {
 	private async UniTask MoveAndCheckCollisions(Action<EnemyView> onCollision, CancellationToken token) {
 		while (!token.IsCancellationRequested) {
 
-			for (int i = pool.ActiveObjects.Count-1; i >= 0; i--) {
-				var bullet= pool.ActiveObjects[i];
+			for (int i = pool.ActiveObjects.Count - 1; i >= 0; i--) {
+				var bullet = pool.ActiveObjects[i];
 				if (bullet.IsLifeTimeExpired) {
 					Release(bullet);
 					continue;
 				}
 				bullet.Move();
-				var hitEnemy = bullet.CollisionCheck();
-				if (hitEnemy != null) {
+
+			}
+			if (!token.IsCancellationRequested && pool.ActiveObjects.Count > 0) {
+				CheckCollisions(onCollision);
+			}
+			
+			await UniTask.Yield();
+			
+		}
+	}
+
+	private void CheckCollisions(Action<EnemyView> onCollision) {
+		var collision= collisionDetectionSystem.UpdateCollisions(enemyController.ToNativeArray(),ToNativeArray());
+		if (collision.Length>0) {
+
+			for (int i = collision.Length - 1; i >= 0; i--) { 
+				var item = collision[i];
+
+				
+					var bullet = pool.ActiveObjects[item.x];
+					var hitEnemy = enemyController.GetEnemy(item.y);
+
 					hitEnemy.TakeDamage(bullet.damage);
 					Release(bullet);
 					onCollision?.Invoke(hitEnemy);
-				}
-				if (token.IsCancellationRequested) { return; }
-			}			
-			await UniTask.Yield();
+				
+			}
+
 		}
+		collision.Dispose();
 	}
 
 	public void StartShooting(Action<EnemyView> onCollision) {
@@ -75,5 +105,15 @@ public class BulletController : MonoBehaviour {
 	}
 	public IReadOnlyList<BulletView> GetBullets() {
 		return pool.ActiveObjects;
+	}
+
+	internal NativeArray<MotionEntity> ToNativeArray() {
+		NativeArray<MotionEntity> ret = new NativeArray<MotionEntity>(pool.ActiveObjects.Count, Allocator.TempJob);
+		List<int> dd = new();
+		int count = 0;
+		foreach (var item in pool.ActiveObjects) {
+			ret[count++] = new MotionEntity(item);
+		}
+		return ret;
 	}
 }

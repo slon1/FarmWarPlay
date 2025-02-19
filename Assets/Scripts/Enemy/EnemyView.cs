@@ -1,5 +1,5 @@
 using System;
-using Unity.VisualScripting;
+
 using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(EnemyView))]
@@ -10,7 +10,7 @@ public class EnemyView : MonoBehaviour, IPoolable {
 	private float rotationSpeed;
 	private int hp;
 	private Vector2 velocity;
-	private BoxCollider2D coll;
+	
 	public int damage => hp;
 	
 
@@ -23,9 +23,7 @@ public class EnemyView : MonoBehaviour, IPoolable {
 	public void Initialize(EnemyConfig config, Vector2 position, Quaternion rotation) {
 		transform.position = position;
 		transform.rotation = rotation;	
-		spriteRenderer.sprite = config.sprite;		
-		coll = transform.AddComponent<BoxCollider2D>();
-		coll.isTrigger = true;
+		spriteRenderer.sprite = config.sprite;			
 		moveSpeed = config.moveSpeed;
 		rotationSpeed = config.rotationSpeed;
 		hp = config.hp;
@@ -68,6 +66,6 @@ public class EnemyView : MonoBehaviour, IPoolable {
 	}
 
 	public void OnDespawn() {
-		Destroy(coll);
+		//Destroy(coll);
 	}
 }

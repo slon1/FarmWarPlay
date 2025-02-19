@@ -21,6 +21,9 @@ public class Installer : MonoBehaviour {
 		container.Register(new LevelController());
 		container.Register(GetComponent<VfxController>());
 		container.Register(GetComponent<AudioManager>());
+		container.Register(GetComponent<EnemyMovementSystem>());
+		container.Register(GetComponent<CollisionDetectionSystem>());
+		
 		//container.Register<IConfig>(configManager);
 
 		//container.Register<IGUIManager>(guiManager);

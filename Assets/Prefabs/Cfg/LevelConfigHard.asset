@@ -16,10 +16,10 @@ MonoBehaviour:
   bg: {fileID: 21300000, guid: 6b2ee1969f23ed744b4e856cc7811e7e, type: 3}
   playerHp: 1
   waveCount: 33
-  enemyCount: 50
+  enemyCount: 1000
   spawnPoint: {x: 0, y: 0}
-  minSpawnRadius: 16
-  maxSpawnRadius: 29
+  minSpawnRadius: 20
+  maxSpawnRadius: 50
   enemies:
   - {fileID: 11400000, guid: a679a2a2c3c5da749a3f007e51d83ab8, type: 2}
   - {fileID: 11400000, guid: af28a1849b620ea44a3a982a509dae20, type: 2}

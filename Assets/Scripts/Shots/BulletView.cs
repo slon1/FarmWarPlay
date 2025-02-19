@@ -15,8 +15,11 @@ public class BulletView : MonoBehaviour, IPoolable
 	private float maxLifeTime = 2f;
 	private CancellationTokenSource tokenSource ;
 	private CancellationToken token;
-	private int speed;	
-	
+	private int speed;
+	public Vector2 Position => transform.position;
+	public Vector2 Direction => transform.up;
+	public float Velocity => speed;
+
 	public int damage { get; private set; }
 	
 	
@@ -49,7 +52,7 @@ public class BulletView : MonoBehaviour, IPoolable
     }
 	public bool IsLifeTimeExpired => isLifeTimeExpired;
 
-	public Vector2 Position => transform.position;
+	
 
 	public void OnCreated() {
 		spriteRenderer = GetComponent<SpriteRenderer>();

@@ -3,36 +3,33 @@ using System.Collections.Generic;
 using System.Threading;
 using Unity.Collections;
 using Unity.Jobs;
-
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemyController : MonoBehaviour {
-	[SerializeField] private float avoidanceWeight = 1.5f;
-	[SerializeField] private float alignmentWeight = 1.5f;
-	[SerializeField] private float cohesionWeight = 1.0f;
-	[SerializeField] private float targetWeight = 2.0f;
-	[SerializeField] private float neighborRadius = 3f;
+	
 	[SerializeField] private EnemyView prefab;
 
 	private GenericPool<EnemyView> pool;
-	private float neighborRadiusSqr;
+	
 	private CancellationTokenSource cts;
 	private Player player;
 	private LevelConfig config;
+	
 	private IReadOnlyCollection<EnemyView> enemies => pool.ActiveObjects;
 	private EnemyConfig RandomCfg => config.enemies[Random.Range(0, config.enemies.Count)];
+	private BulletController bulletController;
 
-	private NativeArray<Vector2> enemyPositions;
-	private NativeArray<Vector2> velocities;
 
-	private NativeArray<Vector2> avoidanceResults;
-	private NativeArray<Vector2> alignmentResults;
-	private NativeArray<Vector2> cohesionResults;
+	private EnemyMovementSystem movementSystem;
 
 	public void Initialize(LevelConfig levelConfig) {
 		pool = new(prefab);
-		neighborRadiusSqr = neighborRadius * neighborRadius;
+		
 		config = levelConfig;
+		bulletController=Installer.GetService<BulletController>();
+		movementSystem=Installer.GetService<EnemyMovementSystem>();
 	}
 
 	public void StartMoving() {
@@ -43,78 +40,26 @@ public class EnemyController : MonoBehaviour {
 
 	private async UniTaskVoid MoveEnemies(CancellationToken token) {
 		while (!token.IsCancellationRequested && enemies.Count > 0) {
-			AllocateArrays();
-			CalculateDirections();
-			Move();
+
+			
+			var todo= movementSystem.UpdateMovement(ToNativeArray(),bulletController.ToNativeArray());
+			if (todo.Length == enemies.Count) {
+				int count = 0;
+				foreach (var item in enemies) {
+					item.Move(todo[count++]);
+				}
+			}
+			todo.Dispose();
+
+			
 			await UniTask.Yield();
-			DeallocateArrays();
+			
+
 		}
 	}
 
-	private void Move() {
-		for (int i = 0; i < pool.ActiveObjects.Count; i++) {
-			var enemy = pool.ActiveObjects[i];
-			Vector2 movement = (avoidanceResults[i] * avoidanceWeight) +
-							   (alignmentResults[i] * alignmentWeight) +
-							   (cohesionResults[i] * cohesionWeight) +
-							   (CalculateTargetDirection(enemy) * targetWeight);
-			enemy.Move(movement);
-			if (cts.Token.IsCancellationRequested) { return; }
-		}
-	}
-
-	private void AllocateArrays() {
-		int count = enemies.Count;		
-
-		enemyPositions = new NativeArray<Vector2>(count, Allocator.TempJob);
-		velocities = new NativeArray<Vector2>(count, Allocator.TempJob);
-		avoidanceResults = new NativeArray<Vector2>(count, Allocator.TempJob);
-		alignmentResults = new NativeArray<Vector2>(count, Allocator.TempJob);
-		cohesionResults = new NativeArray<Vector2>(count, Allocator.TempJob);
-	}
-
-	private void CalculateDirections() {
-		int count = enemies.Count;
-		if (count == 0) return;
-
-		int index = 0;
-		foreach (var enemy in enemies) {
-			enemyPositions[index] = enemy.Position;
-			velocities[index] = enemy.Velocity;
-			index++;
-		}
-
-		JobHandle avoidanceHandle = new CalculateAvoidanceJob {
-			EnemyPositions = enemyPositions,
-			NeighborRadiusSqr = neighborRadiusSqr,
-			Results = avoidanceResults
-		}.Schedule(count, 64);
-
-		JobHandle alignmentHandle = new CalculateAlignmentJob {
-			EnemyPositions = enemyPositions,
-			Velocities = velocities,
-			NeighborRadiusSqr = neighborRadiusSqr,
-			Results = alignmentResults
-		}.Schedule(count, 64, avoidanceHandle);
-
-		JobHandle cohesionHandle = new CalculateCohesionJob {
-			EnemyPositions = enemyPositions,
-			NeighborRadiusSqr = neighborRadiusSqr,
-			Results = cohesionResults
-		}.Schedule(count, 64, alignmentHandle);
-
-		if (!cts.Token.IsCancellationRequested) {
-			cohesionHandle.Complete();
-		}
-	}
-
-	private void DeallocateArrays() {
-		if (enemyPositions.IsCreated) enemyPositions.Dispose();
-		if (velocities.IsCreated) velocities.Dispose();
-		if (avoidanceResults.IsCreated) avoidanceResults.Dispose();
-		if (alignmentResults.IsCreated) alignmentResults.Dispose();
-		if (cohesionResults.IsCreated) cohesionResults.Dispose();
-	}
+	
+	
 
 	private void OnDestroy() {
 		StopMoving();
@@ -124,7 +69,7 @@ public class EnemyController : MonoBehaviour {
 	public void StopMoving() {
 		cts?.Cancel();
 		cts = null;
-		DeallocateArrays();
+		
 	}
 
 	public void Spawn() {
@@ -155,13 +100,23 @@ public class EnemyController : MonoBehaviour {
 
 		return startPoint + new Vector3(x, y, 0f);
 	}
-
-	private Vector2 CalculateTargetDirection(EnemyView enemy) {
-		return (player.Position - enemy.Position).normalized;
+	
+	public EnemyView GetEnemy(int index) {
+		return pool.ActiveObjects[index];
 	}
-
 	internal void SetTarget(Player player) {
 		this.player = player;
 	}
 	public int enemyCount => pool.ActiveObjects.Count;
+	public NativeArray<MotionEntity> ToNativeArray() {
+		NativeArray<MotionEntity> ret=new NativeArray<MotionEntity>(enemyCount, Allocator.TempJob);		
+		List<int> dd = new();		
+		int count = 0;
+		foreach (var item in enemies) {
+			ret[count++] = new MotionEntity(item);
+			
+		}
+		return ret;
+		
+	}
 }

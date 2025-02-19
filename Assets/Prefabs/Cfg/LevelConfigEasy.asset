@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   bg: {fileID: 21300000, guid: 94cf0fbcad2c364469e0acfa616b239c, type: 3}
-  playerHp: 3
+  playerHp: 333
   waveCount: 1
-  enemyCount: 50
+  enemyCount: 2000
   spawnPoint: {x: 0, y: 0}
-  minSpawnRadius: 17
-  maxSpawnRadius: 23
+  minSpawnRadius: 20
+  maxSpawnRadius: 50
   enemies:
   - {fileID: 11400000, guid: b1eecab7aa50f224d82a4fe317e4b09f, type: 2}

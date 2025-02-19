@@ -1872,7 +1872,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 20
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1958,6 +1958,8 @@ GameObject:
   - component: {fileID: 557202516}
   - component: {fileID: 557202515}
   - component: {fileID: 557202517}
+  - component: {fileID: 557202521}
+  - component: {fileID: 557202522}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -1991,7 +1993,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1561190015}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &557202507
@@ -2178,11 +2181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8dd289b11cead54d8fa1238d1662c77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  avoidanceWeight: 3
-  alignmentWeight: 3
-  cohesionWeight: 3
-  targetWeight: 1.5
-  neighborRadius: 4
   prefab: {fileID: 6597137077911892149, guid: e10742d02deb52e4f9510dceda8e97e8, type: 3}
 --- !u!114 &557202519
 MonoBehaviour:
@@ -2199,6 +2197,32 @@ MonoBehaviour:
   prefab: {fileID: 6596521579331615467, guid: a35b7fd73c0207449a00d0eb78fd06a0, type: 3}
   speed: 10
   damage: 1
+--- !u!114 &557202521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557202504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bbe65944a9e0104f8c52f30471d1c60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rootFilters: {fileID: 1561190012}
+--- !u!114 &557202522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557202504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cbde7cfcf49c054da071a3b9571783d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rootFilters: {fileID: 1561190012}
 --- !u!1 &579523288
 GameObject:
   m_ObjectHideFlags: 0
@@ -5171,7 +5195,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1272354393}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 7
+    OrthographicSize: 20
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -5204,6 +5228,127 @@ Transform:
   - {fileID: 1229646755}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1561190012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1561190015}
+  - component: {fileID: 1561190021}
+  - component: {fileID: 1561190020}
+  - component: {fileID: 1561190019}
+  - component: {fileID: 1561190016}
+  - component: {fileID: 1561190013}
+  - component: {fileID: 1561190018}
+  m_Layer: 0
+  m_Name: JobFilters
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1561190013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561190012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d06eef8d9f83314b8806ba0d9f274e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NeighborRadius: 4
+  Weight: 1
+--- !u!4 &1561190015
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561190012}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 557202506}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1561190016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561190012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ccabbe5a3bd2b1438b370c2d26a1614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NeighborRadius: 4
+  Weight: 1
+--- !u!114 &1561190018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561190012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9269a9f3d8866f14aab47c56801df3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1272354391}
+  Weight: 0.1
+--- !u!114 &1561190019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561190012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51f62778acd71d047bc41819434f50c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NeighborRadius: 4
+  Weight: 1
+--- !u!114 &1561190020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561190012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3412432d2f6dbc64f874681dca5887d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PanicThreshold: 6
+  DirectionTolerance: 0.33
+  Weight: 10
+--- !u!114 &1561190021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561190012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08479136bf78019489fbdeb4a080ea49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BulletRadius: 0.1
 --- !u!1 &1593375192
 GameObject:
   m_ObjectHideFlags: 0
