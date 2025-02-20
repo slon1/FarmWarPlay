@@ -91,8 +91,9 @@ public class Player : MonoBehaviour {
 		
 		using (var collisionIndex = new NativeReference<int>(-1, Allocator.TempJob)) 
 		{
+			var enemiesArr = enemyController.ToNativeArray();
 			var job = new CheckCollisionJob {
-				Enemies = enemyController.ToNativeArray(),
+				Enemies = enemiesArr,
 				PlayerPosition = transform.position,
 				PlayerRadiusSqr = spriteSize.sqrMagnitude,				
 				CollisionIndex = collisionIndex
@@ -103,7 +104,7 @@ public class Player : MonoBehaviour {
 				await UniTask.Yield();
 			}
 			jobHandle.Complete();
-
+			enemiesArr.Dispose();
 			return collisionIndex.Value>=0 ? enemyController.GetEnemy(collisionIndex.Value) : null;
 		}
 	}

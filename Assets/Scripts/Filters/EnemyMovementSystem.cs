@@ -29,10 +29,11 @@ public interface ICollisionFilter {
 public interface IMovementFilter {
 	JobHandle ScheduleJob(NativeArray<MotionEntity> enemies, NativeArray<MotionEntity> bullets, JobHandle dependency = default);
 	NativeArray<Vector2> GetResults();
+	void Dispose();
 }
 
 public class EnemyMovementSystem : MonoBehaviour {
-	
+
 	[SerializeField] GameObject rootFilters;
 	private List<IMovementFilter> filters = new();
 
@@ -40,7 +41,7 @@ public class EnemyMovementSystem : MonoBehaviour {
 	private void Awake() {
 		filters = rootFilters.GetComponents<IMovementFilter>().ToList();
 
-		
+
 	}
 
 	public NativeArray<Vector2> UpdateMovement(NativeArray<MotionEntity> enemies, NativeArray<MotionEntity> bullets) {
@@ -49,28 +50,28 @@ public class EnemyMovementSystem : MonoBehaviour {
 
 		if (enemyCount == 0 || filterCount == 0) return default;
 
-		
+
 		NativeArray<Vector2> filterResults = new NativeArray<Vector2>(enemyCount * filterCount, Allocator.TempJob);
 		NativeArray<Vector2> summedResults = new NativeArray<Vector2>(enemyCount, Allocator.TempJob);
 
-		
+
 		NativeArray<JobHandle> jobHandles = new NativeArray<JobHandle>(filterCount, Allocator.Temp);
 		for (int i = 0; i < filterCount; i++) {
 			jobHandles[i] = filters[i].ScheduleJob(enemies, bullets);
 		}
 
-		
+
 		JobHandle combinedHandle = JobHandle.CombineDependencies(jobHandles);
 		jobHandles.Dispose();
 
 		combinedHandle.Complete();
-		
+
 		for (int i = 0; i < filterCount; i++) {
 			NativeArray<Vector2> currentResults = filters[i].GetResults();
-			NativeArray<Vector2>.Copy(currentResults, 0, filterResults, i * enemyCount, enemyCount); 
+			NativeArray<Vector2>.Copy(currentResults, 0, filterResults, i * enemyCount, enemyCount);
 		}
 
-		
+
 		var sumJob = new SumAllFiltersJob {
 			FilterResults = filterResults,
 			SummedResults = summedResults,
@@ -79,12 +80,16 @@ public class EnemyMovementSystem : MonoBehaviour {
 		};
 		JobHandle sumHandle = sumJob.Schedule(enemyCount, 64, combinedHandle);
 
-		
+
 		sumHandle.Complete();
 
-		
+
 		filterResults.Dispose();
-		
+
+		for (int i = 0; i < filterCount; i++) {
+			filters[i].Dispose();
+		}
+
 		return summedResults;
 	}
 	private void OnDestroy() {

@@ -83,13 +83,13 @@ public class GUIManager : MonoBehaviour, IGUIManager {
 
 	}
 	public void ShowPanelModal(PanelId panelId, bool show) {
-		if (show) {
+		if (show) {			
 			panels[panelId].Show();
 		}
 		else {
 			panels[panelId].Hide();
 		}
-
+		
 
 
 	}
@@ -99,6 +99,7 @@ public class GUIManager : MonoBehaviour, IGUIManager {
 				continue;
 			}
 			if (panel.PanelID == panelId) {
+
 				panel.Show();
 			}
 			else {

@@ -9,7 +9,9 @@ public interface IPage {
 	void Execute<T>(PageActionId action, T param );
 	void Execute(PageActionId action);
 	public GameObject Root { get; }
-	public PanelId PanelID { get; }	
+	public PanelId PanelID { get; }
+
+	
 
 	public bool IsStatic();
 	public bool IsVisible();

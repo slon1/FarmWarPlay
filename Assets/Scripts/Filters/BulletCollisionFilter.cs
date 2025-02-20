@@ -1,4 +1,5 @@
-﻿using Unity.Collections;
+﻿using Unity.Burst;
+using Unity.Collections;
 using Unity.Jobs;
 using Unity.Mathematics;
 using UnityEngine;
@@ -21,9 +22,10 @@ public class BulletCollisionFilter : MonoBehaviour, ICollisionFilter {
 		}.Schedule(bullets.Length, 64, dependency);
 	}
 	private void OnDestroy() {
-		if (output.IsCreated) output.Dispose();
+		//if (output.IsCreated) output.Dispose();
 	}
 }
+[BurstCompile]
 public struct BulletCollisionJob : IJobParallelFor {
 	[ReadOnly] public NativeArray<MotionEntity> Enemies;
 	[ReadOnly] public NativeArray<MotionEntity> Bullets;

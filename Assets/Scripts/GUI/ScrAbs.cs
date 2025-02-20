@@ -46,8 +46,10 @@ public abstract class ScrAbs : MonoBehaviour, IPage {
 
 	public virtual void Hide() {
 		if (root != null) {
+			EnableInput(false);
 			canvas.DOFade(0, 0.5f).OnComplete(() => {
 				canvas.blocksRaycasts = false;
+				EnableInput(true);
 			});
 		}
 
@@ -55,8 +57,10 @@ public abstract class ScrAbs : MonoBehaviour, IPage {
 
 	public virtual void Show() {
 		if (root != null) {
+			EnableInput(false);
 			canvas.DOFade(1, 0.5f).OnComplete(() => {
 				canvas.blocksRaycasts = true;
+				EnableInput(true);
 			});
 		}
 	}
@@ -75,6 +79,12 @@ public abstract class ScrAbs : MonoBehaviour, IPage {
 
 	public virtual void Execute(PageActionId action) {
 		
+	}
+
+	private void EnableInput(bool enable) {
+		foreach (var item in EventButtons) {
+			item.Button.enabled = enable;
+		}
 	}
 }
 

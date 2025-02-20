@@ -14,11 +14,9 @@ public class CollisionDetectionSystem : MonoBehaviour
 	private void Awake() {
 		filter = rootFilters.GetComponent<ICollisionFilter>();
 	}
-	public async UniTask<NativeList<int2>> UpdateCollisionsAsync(NativeArray<MotionEntity> enemies, NativeArray<MotionEntity> bullets) {
-		var jobHandle = filter.ScheduleJob(enemies, bullets, default);
-		while (!jobHandle.IsCompleted) {
-			await UniTask.Yield();
-		}
+	public NativeList<int2> UpdateCollisions(NativeArray<MotionEntity> enemies, NativeArray<MotionEntity> bullets) {
+		var jobHandle = filter.ScheduleJob(enemies, bullets, default);		
+		jobHandle.Complete();
 		return filter.GetResults();
 	}
 	private void OnDestroy() {

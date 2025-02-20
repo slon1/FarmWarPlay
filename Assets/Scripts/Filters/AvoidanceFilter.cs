@@ -34,6 +34,10 @@ public class AvoidanceFilter : MonoBehaviour, IMovementFilter {
 			Results = output
 		}.Schedule(enemies.Length, 64, dependency);
 	}
+
+	public void Dispose() {
+		output.Dispose();
+	}
 }
 [BurstCompile]
 struct AvoidanceJob : IJobParallelFor {

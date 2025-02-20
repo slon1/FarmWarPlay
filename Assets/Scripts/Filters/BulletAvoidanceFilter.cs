@@ -11,6 +11,11 @@ public class BulletAvoidanceFilter : MonoBehaviour, IMovementFilter {
 	[SerializeField] float PanicThreshold;
 	[SerializeField] float DirectionTolerance;
 	[SerializeField] float Weight;
+
+	public void Dispose() {
+		output.Dispose();
+	}
+
 	public NativeArray<Vector2> GetResults() => output;
 
 	public JobHandle ScheduleJob(NativeArray<MotionEntity> enemies, NativeArray<MotionEntity> bullets, JobHandle dependency = default) {

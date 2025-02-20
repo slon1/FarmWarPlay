@@ -10,6 +10,9 @@ public class ToPlayerFilter : MonoBehaviour, IMovementFilter {
 	private NativeArray<Vector2> output;
 	[SerializeField] float Weight;
 
+	public void Dispose() {
+		output.Dispose();
+	}
 
 	public NativeArray<Vector2> GetResults() => output;
 
