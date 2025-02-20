@@ -21,7 +21,7 @@ public class BulletCollisionFilter : MonoBehaviour, ICollisionFilter {
 		}.Schedule(bullets.Length, 64, dependency);
 	}
 	private void OnDestroy() {
-		//if (output.IsCreated) output.Dispose();
+		if (output.IsCreated) output.Dispose();
 	}
 }
 public struct BulletCollisionJob : IJobParallelFor {

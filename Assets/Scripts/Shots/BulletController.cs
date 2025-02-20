@@ -47,7 +47,7 @@ public class BulletController : MonoBehaviour {
 
 			}
 			if (!token.IsCancellationRequested && pool.ActiveObjects.Count > 0) {
-				CheckCollisions(onCollision);
+				CheckCollisions(onCollision).Forget();
 			}
 			
 			await UniTask.Yield();
@@ -55,8 +55,8 @@ public class BulletController : MonoBehaviour {
 		}
 	}
 
-	private void CheckCollisions(Action<EnemyView> onCollision) {
-		var collision= collisionDetectionSystem.UpdateCollisions(enemyController.ToNativeArray(),ToNativeArray());
+	private async UniTaskVoid CheckCollisions(Action<EnemyView> onCollision) {
+		var collision= await collisionDetectionSystem.UpdateCollisionsAsync(enemyController.ToNativeArray(),ToNativeArray()).AttachExternalCancellation(cts.Token);
 		if (collision.Length>0) {
 
 			for (int i = collision.Length - 1; i >= 0; i--) { 
@@ -108,8 +108,7 @@ public class BulletController : MonoBehaviour {
 	}
 
 	internal NativeArray<MotionEntity> ToNativeArray() {
-		NativeArray<MotionEntity> ret = new NativeArray<MotionEntity>(pool.ActiveObjects.Count, Allocator.TempJob);
-		List<int> dd = new();
+		NativeArray<MotionEntity> ret = new NativeArray<MotionEntity>(pool.ActiveObjects.Count, Allocator.TempJob);		
 		int count = 0;
 		foreach (var item in pool.ActiveObjects) {
 			ret[count++] = new MotionEntity(item);

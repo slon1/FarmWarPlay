@@ -28,7 +28,7 @@ public class Player : MonoBehaviour {
 	private void Awake() {
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		if (spriteRenderer != null) {
-			spriteSize = spriteRenderer.bounds.size * 0.33f;
+			spriteSize = spriteRenderer.bounds.size;
 		}
 		enemyController = Installer.GetService<EnemyController>();
 	}
@@ -69,7 +69,7 @@ public class Player : MonoBehaviour {
 	}
 	private async UniTaskVoid CollisionCheck(Action<EnemyView> onHit, CancellationToken token) {
 		while (!token.IsCancellationRequested) {
-			var col = CheckCollision();
+			var col = await CheckCollision().AttachExternalCancellation(token);
 			if (col) {
 				var dmg = col.damage;
 				col.TakeDamage(hp, true);
@@ -87,7 +87,7 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	private EnemyView CheckCollision() {
+	private async UniTask<EnemyView> CheckCollision() {
 		
 		using (var collisionIndex = new NativeReference<int>(-1, Allocator.TempJob)) 
 		{
@@ -99,6 +99,9 @@ public class Player : MonoBehaviour {
 			};
 
 			JobHandle jobHandle = job.Schedule(enemyController.enemyCount, 64);
+			while (!jobHandle.IsCompleted) {
+				await UniTask.Yield();
+			}
 			jobHandle.Complete();
 
 			return collisionIndex.Value>=0 ? enemyController.GetEnemy(collisionIndex.Value) : null;

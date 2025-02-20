@@ -6,6 +6,7 @@ using Unity.Jobs;
 using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using Unity.VisualScripting;
 
 public class EnemyController : MonoBehaviour {
 	
@@ -41,8 +42,9 @@ public class EnemyController : MonoBehaviour {
 	private async UniTaskVoid MoveEnemies(CancellationToken token) {
 		while (!token.IsCancellationRequested && enemies.Count > 0) {
 
-			
-			var todo= movementSystem.UpdateMovement(ToNativeArray(),bulletController.ToNativeArray());
+			var enemiesArr = ToNativeArray();
+			var bulletsArr = bulletController.ToNativeArray();
+			var todo= movementSystem.UpdateMovement(enemiesArr,bulletsArr);
 			if (todo.Length == enemies.Count) {
 				int count = 0;
 				foreach (var item in enemies) {
@@ -50,7 +52,8 @@ public class EnemyController : MonoBehaviour {
 				}
 			}
 			todo.Dispose();
-
+			enemiesArr.Dispose();
+			bulletsArr.Dispose();
 			
 			await UniTask.Yield();
 			
@@ -59,10 +62,11 @@ public class EnemyController : MonoBehaviour {
 	}
 
 	
+
 	
 
 	private void OnDestroy() {
-		StopMoving();
+		StopMoving();		
 		//pool?.Clear();
 	}
 
@@ -109,8 +113,7 @@ public class EnemyController : MonoBehaviour {
 	}
 	public int enemyCount => pool.ActiveObjects.Count;
 	public NativeArray<MotionEntity> ToNativeArray() {
-		NativeArray<MotionEntity> ret=new NativeArray<MotionEntity>(enemyCount, Allocator.TempJob);		
-		List<int> dd = new();		
+		NativeArray<MotionEntity> ret=new NativeArray<MotionEntity>(enemyCount, Allocator.Persistent);			
 		int count = 0;
 		foreach (var item in enemies) {
 			ret[count++] = new MotionEntity(item);
