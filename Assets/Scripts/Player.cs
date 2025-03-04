@@ -100,9 +100,9 @@ public class Player : MonoBehaviour {
 			};
 
 			JobHandle jobHandle = job.Schedule(enemyController.enemyCount, 64);
-			while (!jobHandle.IsCompleted) {
-				await UniTask.Yield();
-			}
+			
+			await UniTask.WaitUntil(()=>jobHandle.IsCompleted);
+			
 			jobHandle.Complete();
 			enemiesArr.Dispose();
 			return collisionIndex.Value>=0 ? enemyController.GetEnemy(collisionIndex.Value) : null;

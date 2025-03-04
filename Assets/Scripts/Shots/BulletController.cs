@@ -47,7 +47,7 @@ public class BulletController : MonoBehaviour {
 
 			}
 			if (!token.IsCancellationRequested && pool.ActiveObjects.Count > 0) {
-				CheckCollisions(onCollision);
+				CheckCollisions(onCollision).AttachExternalCancellation(token).Forget();
 			}
 			
 			await UniTask.Yield();
@@ -55,10 +55,10 @@ public class BulletController : MonoBehaviour {
 		}
 	}
 
-	private void CheckCollisions(Action<EnemyView> onCollision) {
+	private async UniTask CheckCollisions(Action<EnemyView> onCollision) {
 		var enemiesArr = enemyController.ToNativeArray();
 		var bulletsArr = ToNativeArray();
-		var collision= collisionDetectionSystem.UpdateCollisions(enemiesArr,bulletsArr);
+		var collision= await collisionDetectionSystem.UpdateCollisions(enemiesArr,bulletsArr);
 		if (collision.Length>0) {
 
 			for (int i = collision.Length - 1; i >= 0; i--) { 
